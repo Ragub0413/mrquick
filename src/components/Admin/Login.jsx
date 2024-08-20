@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import {useDispatch} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { signInStaff } from "../../connection/action/user.js";
 import Container from "../Container";
 import {
   FaUserGear,
@@ -8,10 +11,23 @@ import {
   FaEnvelope,
 } from "react-icons/fa6";
 import Icon from "../../assets/Mr.QuickFixLogo.png";
-
+const initialState = { email:'', password:''  };
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [greeting, setGreeting] = useState("");
+  
+  const [email,setEmail] = useState('');
+  
+  const [values, setValues] = useState(initialState)
+  const handleChange = e => {
+      const {name, value} = e.target
+      setValues({
+          ...values,
+          [name]: value
+      })
+  };
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -32,6 +48,15 @@ const Login = () => {
     setGreeting(getGreeting());
   }, []);
 
+  const handleSubmit =(e)=>{
+        e.preventDefault();
+        console.log(values);
+        dispatch(signInStaff(values,navigate))
+  }
+  const handleForgotPassword =()=>{
+    alert("Ongoing Development");
+  }
+
   return (
     <div className="h-screen bg-secondary-50">
       <Container className="flex h-full items-center justify-center">
@@ -51,7 +76,7 @@ const Login = () => {
             <div className="absolute -top-10 left-1/2 h-24 w-24 rounded-full bg-white bg-gradient-to-b from-white to-primary-400 opacity-20"></div>
           </div>
           <div className="flex justify-center rounded-b-3xl bg-white px-4 py-12 md:order-1 md:rounded-l-3xl md:rounded-r-none md:p-12">
-            <form className="w-full font-roboto">
+            <form className="w-full font-roboto" onSubmit={handleSubmit} >
               <div className="flex flex-col items-center">
                 <FaUserGear className="text-5xl" />
                 <h1 className="pt-4 font-roboto text-3xl font-semibold">
@@ -62,8 +87,12 @@ const Login = () => {
                   <input
                     className="w-full border-l border-secondary-200 pl-2 outline-none"
                     type="email"
+                    name="email"
+                    value={values.email}
                     required
                     placeholder="Email:"
+                   onChange={handleChange}
+                   //onChange={ e => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="mt-4 flex w-full items-center rounded-2xl border border-secondary-500 p-2">
@@ -71,8 +100,12 @@ const Login = () => {
                   <input
                     className="w-full border-l border-secondary-200 pl-2 outline-none"
                     type={passwordVisible ? "text" : "password"}
+                    name="password"
+                    value={values.password} 
+                  onChange={handleChange}
                     required
                     placeholder="Password:"
+                    
                   />
                   {passwordVisible ? (
                     <FaRegEye
@@ -87,11 +120,11 @@ const Login = () => {
                   )}
                 </div>
                 <div className="w-full text-end">
-                  <button className="pt-1 text-sm text-indigo-500 hover:underline">
+                  <button onClick={handleForgotPassword}className="pt-1 text-sm text-indigo-500 hover:underline">
                     Forgot Password
                   </button>
                 </div>
-                <button className="mt-4 w-full rounded-2xl bg-primary-500 p-2 text-white hover:bg-primary-400">
+                <button type="submit" className="mt-4 w-full rounded-2xl bg-primary-500 p-2 text-white hover:bg-primary-400">
                   Log In
                 </button>
               </div>
