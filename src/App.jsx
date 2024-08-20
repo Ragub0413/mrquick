@@ -35,7 +35,7 @@ const router = createBrowserRouter([
 ]);
 const router1 = createBrowserRouter([
   {
-    path: "/Mrquickfix/",
+    path: "/",
     element: <Home />,
   },
   {
