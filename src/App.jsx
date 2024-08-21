@@ -9,23 +9,23 @@ import AdminDashboard from "./pages/AdminPanelpage"
 
 const router = createBrowserRouter([
   {
-    path: "/Mrquickfix/",
+    path: "/mrquick/",
     element: <Home />,
   },
   {
-    path: "/Mrquickfix/projects/",
+    path: "/mrquick/projects/",
     element: <Projectpage />,
   },
   {
-    path: "/Mrquickfix/testimonials/",
+    path: "/mrquick/testimonials/",
     element: <AllTestimonialpage />,
   },
   {
-    path: "/Mrquickfix/admin/login/",
+    path: "/mrquick/admin/login/",
     element: <LoginPage />,
   },
   {
-    path: `/Mrquickfix/admin/dashboard/`,  
+    path: `/mrquick/admin/dashboard/`,  
     element: <AdminDashboard />,
   },
   {
@@ -39,15 +39,15 @@ const router1 = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/Mrquickfix/projects/",
+    path: "/mrquick/projects/",
     element: <Projectpage />,
   },
   {
-    path: "/Mrquickfix/testimonials/",
+    path: "/mrquick/testimonials/",
     element: <AllTestimonialpage />,
   },
   {
-    path: "/Mrquickfix/admin/login/",
+    path: "/mrquick/admin/login/",
     element: <LoginPage />,
   },
   {
