@@ -1,5 +1,5 @@
 {
-  "homepage": "https://Kenn072799.github.io/Mrquickfix/",
+  "homepage": "https://ragub0413.github.io/mrquick/",
   "name": "mrquickfix",
   "private": true,
   "version": "0.0.0",
@@ -16,7 +16,6 @@
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^1.7.4",
-    "gh-pages": "^6.1.1",
     "jwt-decode": "^4.0.0",
     "lightbox.js-react": "^1.0.9",
     "react": "^18.3.1",
@@ -41,6 +40,7 @@
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
